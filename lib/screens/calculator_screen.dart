@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 
-class Home extends StatefulWidget {
-  const Home({super.key});
+class CalculatorScreen extends StatefulWidget {
+  const CalculatorScreen({super.key});
 
   @override
-  State<Home> createState() => _HomeState();
+  State<CalculatorScreen> createState() => _CalculatorScreenState();
 }
 
-class _HomeState extends State<Home> {
+class _CalculatorScreenState extends State<CalculatorScreen> {
   final TextEditingController _controllerAlcool = TextEditingController();
   final TextEditingController _controllerGasolina = TextEditingController();
 
@@ -43,12 +43,15 @@ class _HomeState extends State<Home> {
         title: Text("Álcool ou Gasolina"),
         backgroundColor: Colors.lightBlueAccent,
       ),
-      body: Container(
-        padding: EdgeInsets.all(32),
-        child: SingleChildScrollView(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            crossAxisAlignment: CrossAxisAlignment.stretch,
+      body: Column(
+        children: <Widget>[
+          Expanded(
+            child: SingleChildScrollView(
+              child: Container(
+                padding: EdgeInsets.all(32),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.stretch,
             children: <Widget>[
               Padding(padding: EdgeInsets.only(bottom: 32)),
               Center(
@@ -118,8 +121,19 @@ class _HomeState extends State<Home> {
                 ),
               ),
             ],
+                  ),
+                ),
+              ),
+            ),
           ),
-        ),
+          Container(
+            height: 50.0,
+            color: Colors.grey[300],
+            child: Center(
+              child: Text("Ad Placeholder"),
+            ),
+          ),
+        ],
       ),
     );
   }
